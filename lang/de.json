@@ -1,0 +1,23 @@
+{
+    "Dashboard": "Dashboard",
+    "Platform": "Plattform",
+    "Repository": "Repository",
+    "Documentation": "Dokumentation",
+    "Settings": "Einstellungen",
+    "Profile": "Profil",
+    "Password": "Passwort",
+    "Two-factor auth": "Zwei-Faktor-Authentifizierung",
+    "Appearance": "Erscheinungsbild",
+    "Log out": "Abmelden",
+    "Items": "Material",
+    "Item erstellen": "Material erstellen",
+    "Item bearbeiten": "Material bearbeiten",
+    "Neues Item": "Neues Material",
+    "Neues Material erstellen": "Neues Material erstellen",
+    "Keine Items gefunden.": "Kein Material gefunden.",
+    "Item wurde erfolgreich erstellt.": "Material wurde erfolgreich erstellt.",
+    "Item wurde erfolgreich aktualisiert.": "Material wurde erfolgreich aktualisiert.",
+    "Item wurde erfolgreich gel\u00f6scht.": "Material wurde erfolgreich gel\u00f6scht.",
+    "Saved.": "Gespeichert.",
+    "Manage your profile and account settings": "Profil- und Kontoeinstellungen verwalten"
+}

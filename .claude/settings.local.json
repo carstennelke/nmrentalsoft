@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan:*)",
+      "Bash(find d:/Entwicklung/nmrentalsoft/vendor/livewire/flux -name *.blade.php)",
+      "Bash(find d:/Entwicklung/nmrentalsoft/vendor/livewire/flux -name table* -o -name columns* -o -name rows*)",
+      "Bash(composer test:*)",
+      "Bash(./vendor/bin/pint --parallel)",
+      "Bash(find d:/Entwicklung/nmrentalsoft/vendor/livewire/flux -name checkbox* -o -name Checkbox*)",
+      "Bash(xargs cat:*)"
+    ]
+  }
+}
