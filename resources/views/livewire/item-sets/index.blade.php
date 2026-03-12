@@ -24,7 +24,7 @@
 
     <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-700">
         <table class="w-full text-sm">
-            <thead class="bg-zinc-50 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 text-left">
+            <thead class="bg-[#F39200] text-white text-left">
                 <tr>
                     <th class="px-4 py-3 font-medium">Kurzname</th>
                     <th class="px-4 py-3 font-medium">Bezeichnung</th>

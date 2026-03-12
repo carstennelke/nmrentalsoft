@@ -20,12 +20,14 @@
             </flux:field>
 
             <flux:field>
-                <flux:label>Einheit <flux:badge size="sm" class="ms-2">max. 10 Zeichen</flux:badge></flux:label>
-                <flux:input
-                    wire:model="unit"
-                    maxlength="10"
-                    placeholder="z. B. Stk, Tag, Set"
-                />
+                <flux:label>Einheit</flux:label>
+                <flux:select wire:model="unit">
+                    <flux:select.option value="Stk">Stk</flux:select.option>
+                    <flux:select.option value="m">m</flux:select.option>
+                    <flux:select.option value="pauschal">pauschal</flux:select.option>
+                    <flux:select.option value="km">km</flux:select.option>
+                    <flux:select.option value="Tag(e)">Tag(e)</flux:select.option>
+                </flux:select>
                 <flux:error name="unit" />
             </flux:field>
         </div>

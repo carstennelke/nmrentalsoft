@@ -31,10 +31,10 @@
                     : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200'"
                 class="px-4 py-2 text-sm font-medium transition-colors flex items-center gap-2"
             >
-                Material Sets
+                In
                 <span class="inline-flex items-center rounded-full bg-zinc-100 dark:bg-zinc-700 px-2 py-0.5 text-xs font-medium text-zinc-600 dark:text-zinc-300">
                     {{ $itemSets->count() }}
-                </span>
+                </span> Sets vorhanden
             </button>
         </div>
 
@@ -54,12 +54,14 @@
                     </flux:field>
 
                     <flux:field>
-                        <flux:label>Einheit <flux:badge size="sm" class="ms-2">max. 10 Zeichen</flux:badge></flux:label>
-                        <flux:input
-                            wire:model="unit"
-                            maxlength="10"
-                            placeholder="z. B. Stk, Tag, Set"
-                        />
+                        <flux:label>Einheit</flux:label>
+                        <flux:select wire:model="unit">
+                            <flux:select.option value="Stk">Stk</flux:select.option>
+                            <flux:select.option value="m">m</flux:select.option>
+                            <flux:select.option value="pauschal">pauschal</flux:select.option>
+                            <flux:select.option value="km">km</flux:select.option>
+                            <flux:select.option value="Tag(e)">Tag(e)</flux:select.option>
+                        </flux:select>
                         <flux:error name="unit" />
                     </flux:field>
                 </div>
@@ -106,12 +108,12 @@
             @else
                 <div class="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-700">
                     <table class="w-full text-sm">
-                        <thead class="bg-zinc-50 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 text-left">
+                        <thead class="bg-[#F39200] text-white text-left">
                             <tr>
                                 <th class="px-4 py-3 font-medium">Kurzname</th>
                                 <th class="px-4 py-3 font-medium">Bezeichnung</th>
                                 <th class="px-4 py-3 font-medium">Einheit</th>
-                                <th class="px-4 py-3 font-medium text-right">Menge im Set</th>
+                                <th class="px-4 py-3 font-medium text-right">Menge</th>
                                 <th class="px-4 py-3"></th>
                             </tr>
                         </thead>

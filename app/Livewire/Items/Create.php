@@ -20,7 +20,7 @@ class Create extends Component
 
     public bool $has_dry_hire_option = false;
 
-    public string $unit = '';
+    public string $unit = 'Stk';
 
     public function save(): void
     {

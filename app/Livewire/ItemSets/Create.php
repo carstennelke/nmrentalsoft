@@ -19,7 +19,7 @@ class Create extends Component
 
     public string $description = '';
 
-    public string $unit = '';
+    public string $unit = 'Stk';
 
     public string $addItemId = '';
 
