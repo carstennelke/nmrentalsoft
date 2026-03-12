@@ -4,6 +4,7 @@ namespace App\Livewire\Items;
 
 use App\Http\Requests\UpdateItemRequest;
 use App\Models\Item;
+use App\Models\ItemSet;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -47,6 +48,8 @@ class Edit extends Component
 
     public function render()
     {
-        return view('livewire.items.edit');
+        $itemSets = $this->item->itemSets()->orderBy('short_name')->get();
+
+        return view('livewire.items.edit', compact('itemSets'));
     }
 }

@@ -1,9 +1,9 @@
 <div class="flex flex-col gap-6">
 
     <div class="flex items-center justify-between">
-        <flux:heading size="xl">{{ __('Items') }}</flux:heading>
-        <flux:button href="{{ route('items.create') }}" wire:navigate icon="plus">
-            {{ __('Neues Item') }}
+        <flux:heading size="xl">{{ __('Kunden') }}</flux:heading>
+        <flux:button href="{{ route('customers.create') }}" wire:navigate icon="plus">
+            {{ __('Neuer Kunde') }}
         </flux:button>
     </div>
 
@@ -26,64 +26,66 @@
         <table class="w-full text-sm">
             <thead class="bg-[#F39200] text-white text-left">
                 <tr>
-                    <th class="px-4 py-3 font-medium">{{ __('Artikelnummer') }}</th>
-                    <th class="px-4 py-3 font-medium">{{ __('Bezeichnung') }}</th>
-                    <th class="px-4 py-3 font-medium">Einheit</th>
-                    <th class="px-4 py-3 font-medium">Dry Hire</th>
+                    <th class="px-4 py-3 font-medium">Typ</th>
+                    <th class="px-4 py-3 font-medium">Name</th>
+                    <th class="px-4 py-3 font-medium">E-Mail</th>
+                    <th class="px-4 py-3 font-medium">Telefon</th>
+                    <th class="px-4 py-3 font-medium">Ort</th>
                     <th class="px-4 py-3"></th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-zinc-200 dark:divide-zinc-700">
-                @forelse ($items as $item)
+                @forelse ($customers as $customer)
                     <tr
                         class="bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 cursor-pointer"
                         wire:navigate
-                        onclick="window.location='{{ route('items.edit', $item) }}'"
+                        onclick="window.location='{{ route('customers.edit', $customer) }}'"
                     >
-                        <td class="px-4 py-3 font-mono font-medium text-zinc-900 dark:text-zinc-100">
-                            {{ $item->short_name }}
-                        </td>
-                        <td class="px-4 py-3 text-zinc-700 dark:text-zinc-300">
-                            {{ $item->long_name }}
-                        </td>
-                        <td class="px-4 py-3 text-zinc-700 dark:text-zinc-300">
-                            {{ $item->unit }}
-                        </td>
                         <td class="px-4 py-3">
-                            @if ($item->has_dry_hire_option)
-                                <flux:badge color="green" size="sm">Ja</flux:badge>
+                            @if ($customer->is_company)
+                                <flux:badge color="blue" size="sm">Firma</flux:badge>
                             @else
-                                <flux:badge color="zinc" size="sm">Nein</flux:badge>
+                                <flux:badge color="zinc" size="sm">Privat</flux:badge>
                             @endif
+                        </td>
+                        <td class="px-4 py-3 font-medium text-zinc-900 dark:text-zinc-100">
+                            {{ $customer->display_name }}
+                        </td>
+                        <td class="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                            {{ $customer->email ?? '–' }}
+                        </td>
+                        <td class="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                            {{ $customer->phone }}
+                        </td>
+                        <td class="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                            {{ $customer->city }}
                         </td>
                         <td class="px-4 py-3" onclick="event.stopPropagation()">
                             <div class="flex items-center justify-end gap-2">
                                 <flux:button
-                                    href="{{ route('items.edit', $item) }}"
+                                    href="{{ route('customers.edit', $customer) }}"
                                     wire:navigate
                                     size="sm"
                                     variant="ghost"
                                     color="green"
                                     icon="pencil-square"
                                 >
-
                                 </flux:button>
                                 <flux:button
-                                    wire:click="delete({{ $item->id }})"
-                                    wire:confirm="{{ __('Material') }} '{{ $item->short_name }}' wirklich löschen?"
+                                    wire:click="delete({{ $customer->id }})"
+                                    wire:confirm="{{ __('Kunde') }} '{{ $customer->display_name }}' wirklich löschen?"
                                     size="sm"
                                     variant="ghost"
                                     icon="trash"
                                 >
-
                                 </flux:button>
                             </div>
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="5" class="px-4 py-10 text-center text-zinc-500 dark:text-zinc-400">
-                            {{ __('Keine Items gefunden.') }}
+                        <td colspan="6" class="px-4 py-10 text-center text-zinc-500 dark:text-zinc-400">
+                            {{ __('Keine Kunden gefunden.') }}
                         </td>
                     </tr>
                 @endforelse
@@ -92,7 +94,7 @@
     </div>
 
     <div>
-        {{ $items->links() }}
+        {{ $customers->links() }}
     </div>
 
 </div>

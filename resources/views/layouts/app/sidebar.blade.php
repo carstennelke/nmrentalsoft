@@ -18,6 +18,12 @@
                     <flux:sidebar.item icon="archive-box" :href="route('items.index')" :current="request()->routeIs('items.*')" wire:navigate>
                         {{ __('Items') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="square-3-stack-3d" :href="route('item-sets.index')" :current="request()->routeIs('item-sets.*')" wire:navigate>
+                        {{ __('Material Sets') }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="users" :href="route('customers.index')" :current="request()->routeIs('customers.*')" wire:navigate>
+                        {{ __('Kunden') }}
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 

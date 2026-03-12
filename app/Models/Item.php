@@ -5,6 +5,7 @@ namespace App\Models;
 use Database\Factories\ItemFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Item extends Model
 {
@@ -24,5 +25,10 @@ class Item extends Model
         return [
             'has_dry_hire_option' => 'boolean',
         ];
+    }
+
+    public function itemSets(): BelongsToMany
+    {
+        return $this->belongsToMany(ItemSet::class)->withPivot('quantity');
     }
 }
